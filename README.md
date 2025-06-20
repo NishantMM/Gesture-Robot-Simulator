@@ -16,6 +16,5 @@ A Python-based robot simulator where you control a robot through a dynamic maze 
 ---
 ## 🎥 Demo
 
-https://github.com/NishantMM/Gesture-Robot-Simulator/assets/your-username/hash-or-id
+📦 [Watch Demo Video (MP4)](https://github.com/NishantMM/Gesture-Robot-Simulator/releases/download/v1.0/demo.mp4)
 
-_or download directly from [`demo.mp4`](demo.mp4)_
