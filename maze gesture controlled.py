@@ -6,6 +6,8 @@ import math
 import random
 import speech_recognition as sr
 import threading
+import pyautogui
+
 
 # Constants
 WIDTH, HEIGHT = 800, 600
@@ -143,6 +145,8 @@ threading.Thread(target=voice_listener, daemon=True).start()
 while True:
     screen.fill((30, 30, 30))
     success, img = cap.read()
+    if not success or img is None:
+        continue  # skip this frame
     img = cv2.flip(img, 1)
     hands, img = detector.findHands(img, flipType=False)
     keys = pygame.key.get_pressed()
@@ -238,7 +242,12 @@ while True:
         screen.blit(final_score_text, (WIDTH // 2 - 90, HEIGHT // 2 + 40))
 
     pygame.display.update()
-    cv2.imshow("Webcam", img)
+    screen_width, screen_height = pyautogui.size()
+    small_img = cv2.resize(img, (320, 240))
+    x = screen_width - 320
+    y = screen_height - 240
+    cv2.imshow("Webcam", small_img)
+    cv2.moveWindow("Webcam", x, y)
 
     # Events
     for event in pygame.event.get():
