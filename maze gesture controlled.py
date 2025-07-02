@@ -109,6 +109,7 @@ def generate_maze(rows, cols):
     carve(1, 1)
     return maze
 
+
 def convert_maze_to_walls(maze):
     walls = []
     for y in range(len(maze)):
